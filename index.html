@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cylindrical Carousel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div id="carousel-container"></div>
+
+    <script src="js/carousel.js?v=1"></script>
+    <script>
+        // Function to load tab scripts dynamically
+        function loadTabScripts() {
+            const timestamp = new Date().getTime(); // Cache busting
+            const tabPromises = [];
+            
+            for(let i = 1; i <= 12; i++) {
+                const script = document.createElement('script');
+                script.src = `js/tabs/tab${i}.js?v=${timestamp}`;
+                document.body.appendChild(script);
+                
+                tabPromises.push(new Promise((resolve) => {
+                    script.onload = resolve;
+                }));
+            }
+            
+            // After all tabs are loaded, initialize carousel
+            Promise.all(tabPromises).then(() => {
+                window.initializeCarousel();
+            });
+        }
+        
+        // Start loading when DOM is ready
+        document.addEventListener('DOMContentLoaded', loadTabScripts);
+    </script>
+</body>
+</html> 
