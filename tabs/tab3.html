@@ -1,0 +1,93 @@
+<div class="tab-content">
+    <div class="content-wrapper vertical-center">
+        <div class="project-section">
+            <h2 class="project-title">Hacking Midjourney</h2>
+            <div class="content-text">
+                I noticed our content team was spending weeks manually creating images with <strong>Midjourney</strong> - writing prompts, downloading files, renaming them, and saving them. Since Midjourney doesn't offer an <strong>API</strong>, I developed an <strong>automated bot solution</strong> that handles this entire workflow (most used internal tool).
+            </div>
+            <div class="image-container">
+                <img src="images/image3.jpeg" alt="Midjourney Example 1">
+                <img src="images/image4.jpeg" alt="Midjourney Example 2">
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Tab-specific styles */
+#tab-3 {
+    background: #FEFCF6;
+    border-color: rgba(30, 30, 30, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2),
+                0 10px 20px rgba(0, 0, 0, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    height: 480px !important; /* Explicitly set base fixed height */
+    /* max-height: 360px !important; Removed height override */
+}
+
+/* Common styles scoped for Tab 3 */
+#tab-3 .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    height: 100%;
+}
+
+#tab-3 .vertical-center {
+    justify-content: center;
+    height: 100%;
+}
+
+#tab-3 .project-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    align-items: center;
+    padding: 0 15px; /* Added padding override */
+}
+
+#tab-3 .project-title {
+    font-family: 'Manrope', 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333333;
+    margin: 0;
+    letter-spacing: -0.5px;
+    text-align: center;
+    width: 100%;
+}
+
+#tab-3 .content-text {
+    font-family: 'Manrope', 'Inter', sans-serif;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333333;
+    margin: 0;
+}
+
+#tab-3 .content-text strong {
+    color: #0066cc;
+    font-weight: 600;
+}
+
+/* Tab3-specific image container */
+#tab-3 .image-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+    width: 100%;
+    align-items: center;
+}
+
+#tab-3 .image-container img {
+    width: 90%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid rgba(30, 30, 30, 0.1);
+}
+</style>

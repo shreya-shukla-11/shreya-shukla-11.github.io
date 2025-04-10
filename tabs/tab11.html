@@ -1,0 +1,114 @@
+<div class="tab-content">
+    <div class="content-wrapper vertical-center">
+        <div class="project-section">
+            <h2 class="project-title">Learnings from mistakes</h2>
+            <div class="content-text">
+                <div class="paragraph">
+                    We removed some parts of the product requirements and changed the product a little bit - eliminating the <span class="highlight">special requirements</span> section and removing the <span class="highlight">cart adjustment</span> for optimal offers. This immediately transformed the problem into a <span class="highlight">multi-variate optimization</span> challenge that didn't require AI.
+                </div>
+
+                <div class="paragraph">
+                    We still used AI to estimate the <span class="highlight">serving size</span> of each individual menu item, but that was a <span class="highlight">one-time preprocessing</span> step. As a result, we could generate carts in <span class="highlight">200ms</span> with <span class="highlight">₹0 real-time cost</span>, aside from the initial preprocessing expense.
+                </div>
+            </div>
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img src="images/image10.png" alt="Success Visualization 1" class="project-image">
+                </div>
+                <div class="image-wrapper">
+                    <img src="images/image11.png" alt="Success Visualization 2" class="project-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Tab-specific styles */
+#tab-11 {
+    background: #FEFCF6;
+    border-color: rgba(30, 30, 30, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2),
+                0 10px 20px rgba(0, 0, 0, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    height: 560px !important; /* Set fixed height */
+}
+
+/* Common styles scoped for Tab 11 */
+#tab-11 .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+#tab-11 .vertical-center {
+    justify-content: flex-start; /* Align content top */
+    height: 100%;
+}
+
+#tab-11 .project-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Gap between elements */
+    width: 100%;
+    align-items: center;
+    padding: 0 10px; /* Horizontal padding */
+}
+
+#tab-11 .project-title {
+    font-family: 'Manrope', 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #333333;
+    margin: 0 0 5px 0;
+    letter-spacing: -0.5px;
+    text-align: center;
+    width: 100%;
+}
+
+#tab-11 .content-text {
+    font-family: 'Manrope', 'Inter', sans-serif;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #444444;
+    margin: 0;
+    width: 100%;
+    padding: 0 5px;
+}
+
+#tab-11 .paragraph {
+    margin-bottom: 10px;
+}
+
+#tab-11 .highlight {
+    color: #0066cc;
+    font-weight: 600;
+    background: rgba(0, 102, 204, 0.08);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+#tab-11 .image-container {
+    display: flex;
+    justify-content: space-between; /* Space images apart */
+    gap: 10px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+#tab-11 .image-wrapper {
+    width: calc(50% - 5px); /* Each wrapper takes half width minus half gap */
+}
+
+#tab-11 .project-image {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+    border-radius: 8px;
+    display: block; /* Prevents potential extra space below image */
+}
+
+</style>

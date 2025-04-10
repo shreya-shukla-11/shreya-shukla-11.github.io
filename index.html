@@ -3,38 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shreya's Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <title>Shreya Shukla | AI Engineer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div id="carousel-container"></div>
+    <div class="grid-background">
+        <div class="grid-overlay"></div>
+    </div>
+    
+    <div class="tabs-container">
+        <!-- Tabs will be loaded dynamically from the tabs folder -->
+    </div>
 
-    <script src="js/carousel.js?v=1"></script>
-    <script>
-        // Function to load tab scripts dynamically
-        function loadTabScripts() {
-            const timestamp = new Date().getTime(); // Cache busting
-            const tabPromises = [];
-            
-            for(let i = 1; i <= 12; i++) {
-                const script = document.createElement('script');
-                script.src = `js/tabs/tab${i}.js?v=${timestamp}`;
-                document.body.appendChild(script);
-                
-                tabPromises.push(new Promise((resolve) => {
-                    script.onload = resolve;
-                }));
-            }
-            
-            // After all tabs are loaded, initialize carousel
-            Promise.all(tabPromises).then(() => {
-                window.initializeCarousel();
-            });
-        }
-        
-        // Start loading when DOM is ready
-        document.addEventListener('DOMContentLoaded', loadTabScripts);
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html> 

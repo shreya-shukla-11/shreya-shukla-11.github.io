@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Manrope', 'Inter', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+
+.grid-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0a0a0a;
+    z-index: -1;
+    overflow: hidden;
+    perspective: 800px;
+}
+
+/* Base grid platform */
+.grid-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250%;
+    height: 250%;
+    background-image: 
+        linear-gradient(45deg, transparent 49.5%, rgba(40, 40, 45, 0.5) 49.5%, rgba(40, 40, 45, 0.5) 50.5%, transparent 50.5%),
+        linear-gradient(-45deg, transparent 49.5%, rgba(40, 40, 45, 0.5) 49.5%, rgba(40, 40, 45, 0.5) 50.5%, transparent 50.5%);
+    background-size: 55px 55px;
+    transform: rotateX(40deg) rotateZ(80deg) scale(2.5);
+    transform-origin: center center;
+    top: -75%;
+    left: -75%;
+    animation: gridFloat 50s infinite linear;
+}
+
+/* Finer grid overlay with perspective */
+.grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250%;
+    height: 250%;
+    background-image: 
+        linear-gradient(45deg, rgba(60, 60, 65, 0.25) 1px, transparent 1px),
+        linear-gradient(-45deg, rgba(60, 60, 65, 0.25) 1px, transparent 1px);
+    background-size: 25px 25px;
+    transform: rotateX(40deg) rotateZ(80deg) scale(2.5);
+    transform-origin: center center;
+    top: -75%;
+    left: -75%;
+    opacity: 0.7;
+    animation: gridFloat 30s infinite linear;
+}
+
+/* Add depth lines for 3D effect */
+.grid-background::after {
+    content: '';
+    position: absolute;
+    width: 250%;
+    height: 250%;
+    background-image: 
+        linear-gradient(90deg, rgba(50, 50, 55, 0.15) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(50, 50, 55, 0.15) 1px, transparent 1px);
+    background-size: 55px 55px;
+    transform: rotateX(40deg) rotateZ(80deg) scale(2.5);
+    transform-origin: center center;
+    top: -75%;
+    left: -75%;
+    opacity: 0.6;
+    animation: gridFloat 40s infinite linear;
+}
+
+@keyframes gridFloat {
+    from {
+        transform: rotateX(40deg) rotateZ(80deg) translateZ(0) scale(2.5);
+    }
+    to {
+        transform: rotateX(40deg) rotateZ(80deg) translateZ(50px) scale(2.5);
+    }
+}
+
+.tabs-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    perspective: 1200px;
+}
+
+.tab {
+    position: absolute;
+    width: 360px; /* Fixed width in pixels */
+    height: 220px; /* Fixed base height in pixels */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) translateY(100vh) rotateX(0deg);
+    background: #FEFCF6;
+    border: 1px solid rgba(30, 30, 30, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2),
+                0 10px 20px rgba(0, 0, 0, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #333333;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease, box-shadow 0.8s ease;
+    padding: 16px 20px; /* Adjusted padding */
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+    opacity: 0;
+    overflow: hidden;
+}
+
+/* Glass morphism effect */
+.tab::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+    border-radius: 16px 16px 0 0;
+    z-index: 0;
+}
+
+.tab::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+}
+
+.tab.active {
+    transform: translate(-50%, -50%) translateY(0) rotateX(0deg);
+    opacity: 1;
+    z-index: 10;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4),
+                0 15px 25px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(40, 40, 45, 0.15);
+}
+
+/* When scrolling down, tabs exit upward */
+.tab.exiting {
+    transform: translate(-50%, -50%) translateY(-120vh) rotateX(15deg);
+    opacity: 0;
+    z-index: 5;
+}
+
+/* When scrolling up, tabs exit downward */
+.tab.exiting-reverse {
+    transform: translate(-50%, -50%) translateY(120vh) rotateX(-15deg);
+    opacity: 0;
+    z-index: 5;
+}
+
+/* When scrolling down, tabs enter from below */
+.tab.incoming {
+    transform: translate(-50%, -50%) translateY(120vh) rotateX(-15deg);
+    opacity: 0;
+    z-index: 15;
+}
+
+/* When scrolling up, tabs enter from above */
+.tab.incoming-reverse {
+    transform: translate(-50%, -50%) translateY(-120vh) rotateX(15deg);
+    opacity: 0;
+    z-index: 15;
+}
+
+/* Custom tab positioning for visual interest */
+.tab.layout-left {
+    transform-origin: left center;
+}
+
+.tab.layout-right {
+    transform-origin: right center;
+}
+
+/* Center social links */
+.social-links-center {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 25px;
+    width: 100%;
+} 

@@ -1,0 +1,89 @@
+<div class="tab-content">
+    <div class="content-wrapper vertical-center">
+        <div class="project-section">
+            <h2 class="project-title">Accidental Use of Diffusion</h2>
+            <div class="content-text">
+                While developing <strong>fine-tuned diffusion models</strong> specifically for generating <strong>Indian food images</strong> based on text prompts, I discovered <strong>image in-painting and outpainting</strong> techniques, these methods allowed for <strong>targeted editing</strong> (modifying only specific areas). I applied these techniques to enhance <strong>restaurant menu photos</strong> that didn't meet quality standards. This approach is now used in production to improve approximately <strong>40%</strong> of the previously rejected images submitted by restaurants.
+            </div>
+            <div class="image-container">
+                <img src="images/image1.png" alt="Diffusion Model Example 1">
+                <img src="images/image2.png" alt="Diffusion Model Example 2">
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Tab-specific styles */
+#tab-2 {
+    background: #FEFCF6;
+    border-color: rgba(30, 30, 30, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2),
+                0 10px 20px rgba(0, 0, 0, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    height: 500px !important; /* Keeping fixed pixel height */
+}
+
+/* Common styles scoped for Tab 2 */
+#tab-2 .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    height: 100%;
+}
+
+#tab-2 .vertical-center {
+    justify-content: center;
+    height: 100%;
+}
+
+#tab-2 .project-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    align-items: center;
+    padding: 0 15px;
+}
+
+#tab-2 .project-title {
+    font-family: 'Manrope', 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333333;
+    margin: 0;
+    letter-spacing: -0.5px;
+    text-align: center;
+    width: 100%;
+}
+
+#tab-2 .content-text {
+    font-family: 'Manrope', 'Inter', sans-serif;
+    text-align: left;
+    font-size: 14.5px;
+    line-height: 1.4;
+    color: #333333;
+    margin: 0;
+}
+
+#tab-2 .content-text strong {
+    color: #0066cc;
+    font-weight: 600;
+}
+
+#tab-2 .image-container {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+    justify-content: center;
+}
+
+#tab-2 .image-container img {
+    width: calc(50% - 6px);
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid rgba(30, 30, 30, 0.1);
+}
+</style> 

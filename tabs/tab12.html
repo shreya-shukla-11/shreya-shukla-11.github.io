@@ -1,0 +1,86 @@
+<div class="tab-content">
+    <div class="content-wrapper vertical-center">
+        <div class="project-section">
+            <h2 class="project-title">The AI Gateway</h2>
+            <div class="content-text">
+                <div class="paragraph">
+                    After building AI products for a long time in the enterprise, this is one of the most inevitable challenges. Managing numerous <span class="highlight">LLM providers</span> with their associated costs, <span class="highlight">observability requirements</span>, rate limits, and unique authentication systems becomes overwhelming.
+                </div>
+
+                <div class="paragraph">
+                    We created an <span class="highlight">abstraction layer microservice</span> over all providers with a single dedicated authentication system that handled <span class="highlight">load balancing</span>, retries, and rate limiting internally across deployments. This solution provided us with one comprehensive dashboard for complete <span class="highlight">observability</span>.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Tab-specific styles */
+#tab-12 {
+    background: #FEFCF6;
+    border-color: rgba(30, 30, 30, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2),
+                0 10px 20px rgba(0, 0, 0, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    height: 460px !important; /* Set fixed height */
+}
+
+/* Common styles scoped for Tab 12 */
+#tab-12 .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+#tab-12 .vertical-center {
+    justify-content: center; /* Center vertically */
+    height: 100%;
+}
+
+#tab-12 .project-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Gap between title and text block */
+    width: 100%;
+    align-items: center;
+    padding: 0 20px;
+}
+
+#tab-12 .project-title {
+    font-family: 'Manrope', 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333333;
+    margin: 0;
+    letter-spacing: -0.5px;
+    text-align: center;
+    width: 100%;
+}
+
+#tab-12 .content-text {
+    font-family: 'Manrope', 'Inter', sans-serif;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #444444;
+    margin: 0;
+    width: 100%;
+    padding: 0 5px;
+}
+
+#tab-12 .paragraph {
+    margin-bottom: 12px;
+}
+
+#tab-12 .highlight {
+    color: #0066cc;
+    font-weight: 600;
+    background: rgba(0, 102, 204, 0.08);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+</style>
