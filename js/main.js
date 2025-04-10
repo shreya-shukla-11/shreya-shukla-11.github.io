@@ -61,11 +61,11 @@ document.addEventListener('DOMContentLoaded', function() {
             lastScrollTime = Date.now();
             
             if (diff > 0) {
-                // Swiping up - move to previous tab (natural direction)
-                prevTab('up');
+                // Swiping up -> NEXT tab
+                nextTab('up'); // Pass 'up' to keep animation direction consistent
             } else {
-                // Swiping down - move to next tab (natural direction)
-                nextTab('down');
+                // Swiping down -> PREVIOUS tab
+                prevTab('down'); // Pass 'down' to keep animation direction consistent
             }
         }
     }
