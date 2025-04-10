@@ -201,4 +201,79 @@ body {
     gap: 25px;
     margin-top: 25px;
     width: 100%;
+}
+
+/* Scroll Indicator Styles */
+#scroll-indicator {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100; /* Ensure it's above tabs */
+    animation: bounceUpDown 1.5s infinite ease-in-out, fadeOutIndicator 1s ease-out 5s forwards; /* Bounce and fade out after 5s */
+    opacity: 1;
+}
+
+#scroll-indicator svg {
+    display: block;
+}
+
+/* Animation for bouncing effect */
+@keyframes bounceUpDown {
+    0%, 100% {
+        transform: translate(-50%, 0);
+    }
+    50% {
+        transform: translate(-50%, -15px);
+    }
+}
+
+/* Animation for fading out */
+@keyframes fadeOutIndicator {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden; /* Hide completely after fade */
+    }
+}
+
+/* Class to hide indicator immediately on interaction */
+.hide-indicator {
+    display: none !important;
+}
+
+.scroll-bubble {
+    width: 16px; /* Equal width */
+    height: 16px; /* Equal height */
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%; /* Make it circular */
+    box-shadow: inset 0 -2px 2px rgba(0, 0, 0, 0.2), 
+                0 2px 5px rgba(0, 0, 0, 0.3);
+    position: relative; 
+}
+
+/* Optional: Add a subtle inner highlight */
+.scroll-bubble::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px; /* Adjusted width */
+    height: 6px; /* Adjusted height */
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%; /* Adjusted radius */
+    filter: blur(1px);
+}
+
+/* Animation for bouncing effect */
+@keyframes bounceUpDown {
+    0%, 100% {
+        transform: translate(-50%, 0);
+    }
+    50% {
+        transform: translate(-50%, -15px);
+    }
 } 

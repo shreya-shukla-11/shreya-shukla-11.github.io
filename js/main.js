@@ -7,6 +7,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollCooldown = 1000; // 1 second cooldown between scroll actions
     let lastDirection = null;
     
+    let touchStartY = 0;
+    const scrollIndicator = document.getElementById('scroll-indicator'); // Get the indicator element
+    let indicatorHidden = false; // Flag to track if indicator is hidden
+    
+    // Function to hide the indicator
+    function hideScrollIndicator() {
+        if (!indicatorHidden && scrollIndicator) {
+            scrollIndicator.classList.add('hide-indicator');
+            indicatorHidden = true;
+        }
+    }
+    
     // Create and append all tabs
     for (let i = 1; i <= numTabs; i++) {
         createTab(i);
@@ -19,9 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('wheel', throttleScroll);
     window.addEventListener('touchstart', handleTouchStart, false);
     window.addEventListener('touchmove', throttleTouchMove, false);
-    
-    // Variables for touch events
-    let touchStartY = 0;
     
     function setupInitialTabs() {
         const allTabs = document.querySelectorAll('.tab');
@@ -51,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function handleTouchMove(event) {
+        hideScrollIndicator(); // Hide indicator on touch move
         if (isScrolling) return;
         
         const touchEndY = event.touches[0].clientY;
@@ -84,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function handleScroll(event) {
+        hideScrollIndicator(); // Hide indicator on wheel scroll
         // Determine scroll direction - reversed for natural scrolling
         if (event.deltaY > 0) {
             // Scrolling down - next tab (lower tab)
